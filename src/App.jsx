@@ -14,7 +14,7 @@ import {
   ProtectedRoute,
 } from "./components";
 
-import { Dashboard, Sucursales, Usuarios, Planes, Prospectos } from "./pages";
+import { Dashboard, Sucursales, Usuarios, Planes, Prospectos, Login } from "./pages";
 
 import "./App.css";
 
@@ -25,8 +25,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
       <BrowserRouter>
+      <Header />
         {activeMenu ? (
           <div className="sidebar position-fixed h-100">
             <Sidebar />
@@ -44,10 +44,11 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
 
             {/* Pages */}
+            {/* user && (rol === "admin" || rol === 'analyst') */}
             <Route
               path="/usuarios"
               element={
-                <ProtectedRoute isAllowed={user && (rol === "admin" || rol === 'analyst')}>
+                <ProtectedRoute isAllowed={true}>
                   <Usuarios />
                 </ProtectedRoute>
               }
@@ -55,7 +56,7 @@ const App = () => {
             <Route
               path="/usuarios/editar/"
               element={
-                <ProtectedRoute isAllowed={user && (rol === "admin" || rol === 'analyst')}>
+                <ProtectedRoute isAllowed={true}>
                   <UserUpdate />
                 </ProtectedRoute>
               }
@@ -63,7 +64,7 @@ const App = () => {
             <Route
               path="/usuarios/agregar/"
               element={
-                <ProtectedRoute isAllowed={user && (rol === "admin" || rol === 'analyst')}>
+                <ProtectedRoute isAllowed={true}>
                   <RegisterForm />
                 </ProtectedRoute>
               }

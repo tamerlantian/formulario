@@ -4,7 +4,31 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function UserListRead() {
-    const [users, setusers] = useState([]);
+    // remove this block
+    const data = [
+        {
+            id: 1,
+            cedula: "1122343433",
+            nombre: "sebastian",
+            apellido: "hoyos",
+            telefono: "3145678789",
+            correo: "sebastian@gmail.com",
+            rol: "admin"
+        },
+        {
+            id: 2,
+            cedula: "1232323112",
+            nombre: "camila",
+            apellido: "rizo",
+            telefono: "321292903",
+            correo: "camila@gmail.com",
+            rol: "analyst"
+        },
+    ]
+    // ------------------------------------
+
+    // Remove data useState's initialized data
+    const [users, setusers] = useState(data);
 
     useEffect(() => {
 
@@ -43,10 +67,10 @@ export default function UserListRead() {
     }
 
     return (
-        <div>
             <Table singleLine>
                 <Table.Header>
                     <Table.Row>
+                        <Table.HeaderCell>Id</Table.HeaderCell>
                         <Table.HeaderCell>Cedula</Table.HeaderCell>
                         <Table.HeaderCell>Nombre</Table.HeaderCell>
                         <Table.HeaderCell>Apellido</Table.HeaderCell>
@@ -62,25 +86,25 @@ export default function UserListRead() {
                     {users.map((data, index) => {
                         return (
                             <Table.Row key={index}>
-                                <Table.Cell>{data.cedula}</Table.Cell>
-                                <Table.Cell>{data.nombre}</Table.Cell>
-                                <Table.Cell>{data.apellido}</Table.Cell>
-                                <Table.Cell>{data.telefono}</Table.Cell>
-                                <Table.Cell>{data.correo}</Table.Cell>
-                                <Table.Cell>{data.rol}</Table.Cell>
-                                <Link to='/usuarios/editar'>
-                                    <Table.Cell>
-                                        <Button onClick={() => setData(data)}>Actualizar</Button>
-                                    </Table.Cell>
-                                </Link>
+                                <Table.Cell className='align-middle'>{index+1}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.cedula}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.nombre}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.apellido}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.telefono}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.correo}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.rol}</Table.Cell>
                                 <Table.Cell>
-                                    <Button onClick={() => onDelete(data.id)} >Eliminar</Button>
+                                    <Link to='/usuarios/editar'>
+                                        <Button className='btn btn-secondary' onClick={() => setData(data)}>Actualizar</Button>
+                                    </Link>
+                                </Table.Cell>
+                                <Table.Cell>
+                                    <Button className='btn btn-danger' onClick={() => onDelete(data.id)} >Eliminar</Button>
                                 </Table.Cell>
                             </Table.Row>
                         )
                     })}
                 </Table.Body>
             </Table>
-        </div>
     )
 }

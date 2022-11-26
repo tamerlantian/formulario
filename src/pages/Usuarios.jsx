@@ -5,9 +5,9 @@ import { UserList } from '../components'
 const Usuarios = () => {
   return (
     <>
-      <h2>Listado de usuarios</h2>
+      <h1 className='main__title'>Listado de usuarios</h1>
       <Link to="/usuarios/agregar/">
-        Agregar Usuario
+        <button className='btn btn-success mt-5'>Agregar Usuario</button>
       </Link>
       <UserList />
     </>

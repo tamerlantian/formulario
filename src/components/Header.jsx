@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { useStateContext } from "../context/ContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { user, setUser } = useStateContext();
+  const navigate = useNavigate()
   const activeMenu = true;
 
-  useEffect(() => { 
+  useEffect(() => {
     setUser(!!localStorage.getItem("username"));
-  },[user])
+  }, [user])
 
   const handleLogout = () => {
     localStorage.removeItem('rol')
@@ -21,11 +23,10 @@ const Header = () => {
     <header className="header">
       <button
         className="header__btn"
-        onClick={() => setActiveMenu((prevActiveMenu) => !PrevActiveMenu)}
+        onClick={() => navigate(-1)}
       >
         <i
-          className={`header__btn-icon fi ${activeMenu ? "fi-rr-arrow-left" : "fi-rr-menu-burger"
-            }`}
+          className={"header__btn-icon fi fi-rr-arrow-left"}
         ></i>
       </button>
       {user ? (
