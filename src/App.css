@@ -1,6 +1,94 @@
-/* .App {
+a {
+  text-decoration: none;
+}
+
+.sidebar {
+  width: 19rem;
+  background-color: #fff;
+  box-shadow: 10px 0px 8px -10px rgba(113, 113, 113, 0.771);
+  top: 0;
+}
+
+.sidebar__logo {
+  color: black;
+  font-size: 1.4rem;
+}
+
+.sidebar__logo span {
+  font-weight: bold;
+}
+
+.sidebar--close {
+  width: 6rem;
+}
+
+.sidebar__menu {
+  padding-left: 1rem;
+  font-size: 1.1rem;
+}
+
+.sidebar__menu a {
+  color: rgb(40, 40, 40);
+  margin-bottom: 2rem;
+}
+
+.sidebar__menu a:hover {
+  color: rgb(58, 177, 217);
+}
+
+.sidebar__menu-item {
+  margin-right: 0.5rem;
+}
+
+.header {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__btn {
+    border: none;
+    background-color: transparent;
+}
+
+.header__btn-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.header,
+.main {
+  max-width: 100%;
+  padding-left: calc(8rem + 188px);
+}
+
+.activeLink {
+  background-color: rgb(67, 186, 216);
+  color: #fff;
+  border-radius: .5rem;
+}
+
+.table {
+  margin: 5rem;
+  max-width: 90%;
+}
+
+.table__head {
+  background-color: rgb(243, 243, 243);
+  border: 1px solid rgb(208, 208, 208);
+}
+
+td .btn:first-child {
+  margin-right: 1rem;
+}
+
+.form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
+  flex-direction: column;
+  max-width: 25rem;
+}
+
+.link--deactived {
+  display: none;
+}

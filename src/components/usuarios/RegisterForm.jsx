@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router';
 
 export default function RegisterForm() {
     const {
@@ -7,6 +8,9 @@ export default function RegisterForm() {
         handleSubmit,
         formState: { errors }
     } = useForm()
+
+    const history = useNavigate()
+
 
     const onSubmit = async (data) => {
         const { cedula, nombre, apellido, telefono, correo, rol } = data
@@ -27,7 +31,7 @@ export default function RegisterForm() {
 
         fetch('http://localhost:3000/usuarios', requestOption)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => history('/usuarios'))
     }
 
     return (
