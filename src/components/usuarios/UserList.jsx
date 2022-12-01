@@ -4,31 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function UserListRead() {
-    // remove this block
-    const data = [
-        {
-            id: 1,
-            cedula: "1122343433",
-            nombre: "sebastian",
-            apellido: "hoyos",
-            telefono: "3145678789",
-            correo: "sebastian@gmail.com",
-            rol: "admin"
-        },
-        {
-            id: 2,
-            cedula: "1232323112",
-            nombre: "camila",
-            apellido: "rizo",
-            telefono: "321292903",
-            correo: "camila@gmail.com",
-            rol: "analyst"
-        },
-    ]
-    // ------------------------------------
-
-    // Remove data useState's initialized data
-    const [users, setusers] = useState(data);
+    const [users, setusers] = useState([]);
 
     useEffect(() => {
 
@@ -54,8 +30,8 @@ export default function UserListRead() {
 
     const getData = () => {
         axios.get(`http://localhost:3000/usuarios`)
-            .then((getData) => {
-                setusers(getData.data);
+            .then(({data}) => {
+                setusers(data);
             })
     }
 

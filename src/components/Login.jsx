@@ -10,6 +10,7 @@ export default function Login() {
 
     const { user, setUser } = useStateContext(false)
     const { rol, setRol } = useStateContext("")
+    const { activeMenu, setActiveMenu } = useStateContext(false)
 
     const onSubmit = async (data) => {
         const { usuario, contrasena} = data
@@ -33,6 +34,7 @@ export default function Login() {
                 localStorage.setItem('username', datos.nombre)
                 setUser(datos.nombre)
                 setRol(datos.rol)
+                setActiveMenu(true)
             }
         })
     }
@@ -41,11 +43,11 @@ export default function Login() {
         <form className="form" onSubmit={handleSubmit(onSubmit)} >
             <h2>Ingresar</h2>            
 
-            <label className='form__label' htmlFor="usuario">Correo:</label>
-            <input className='form__input' {...register("usuario", { required: true })} />
+            <label className='form__label'  htmlFor="usuario">Correo:</label>
+            <input className='form__input' type="text" {...register("usuario", { required: true })} />
 
             <label className='form__label' htmlFor="contrasena">Contraseña:</label>
-            <input className='form__input' {...register("contrasena", { required: true })} />
+            <input className='form__input' type="text" {...register("contrasena", { required: true })} />
             
             <input className='form__submit' type="submit" />
         </form>

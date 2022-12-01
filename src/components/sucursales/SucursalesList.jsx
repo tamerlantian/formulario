@@ -60,19 +60,19 @@ export default function SucursalesList() {
                     {sucursales.map((data, index) => {
                         return (
                             <Table.Row key={index}>
-                                <Table.Cell>{index+1}</Table.Cell>
-                                <Table.Cell>{data.departamento}</Table.Cell>
-                                <Table.Cell>{data.ciudad}</Table.Cell>
-                                <Table.Cell>{data.direccion}</Table.Cell>
-                                <Table.Cell>{data.telefono}</Table.Cell>
+                                <Table.Cell className='align-middle'>{index+1}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.departamento}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.ciudad}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.direccion}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.telefono}</Table.Cell>
                                 <Table.Cell>
                                     <Link to='/sucursales/editar'>
-                                        <Button onClick={() => setData(data)}>Actualizar</Button>
+                                        <Button className='btn btn-secondary' onClick={() => setData(data)}>Actualizar</Button>
                                     </Link>
                                 </Table.Cell>
                                 <Table.Cell>
                                     {user && rol === 'admin' ? (
-                                        <Button onClick={() => onDelete(data.id)} >Eliminar</Button>
+                                        <Button className='btn btn-danger' onClick={() => onDelete(data.id)} >Eliminar</Button>
                                     ): (
                                         <></>
                                     )}

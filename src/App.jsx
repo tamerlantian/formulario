@@ -12,43 +12,57 @@ import {
   PlanesCreate,
   PlanesEdit,
   ProtectedRoute,
+  MascotaCreate,
+  MascotaView,
+  MascotaEdit,
+  MascotaEstado,
 } from "./components";
 
-import { Dashboard, Sucursales, Usuarios, Planes, Prospectos, Login } from "./pages";
+import {
+  Dashboard,
+  Sucursales,
+  Usuarios,
+  Planes,
+  Prospectos,
+  Login,
+  Mascota,
+  Landing,
+} from "./pages";
 
 import "./App.css";
 
 const App = () => {
   const { user } = useStateContext();
   const { rol } = useStateContext();
-  const activeMenu = true;
+  const { activeMenu, setActiveMenu } = useStateContext();
 
   return (
     <div className="App">
       <BrowserRouter>
-      <Header />
         {activeMenu ? (
-          <div className="sidebar position-fixed h-100">
-            <Sidebar />
-          </div>
+          <>
+            <Header />
+            <div className="sidebar position-fixed h-100">
+              <Sidebar />
+            </div>
+          </>
         ) : (
-          <div className="sidebar position-fixed h-100 sidebar--close">
-            <Sidebar />
-          </div>
+          <></> 
         )}
 
-        <div className="main">
+        <div className={activeMenu ? "main" : "main-lading"}>
           <Routes>
             {/* Dashboar */}
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/dashboard" element={<Dashboard />} />
 
             {/* Pages */}
-            {/* user && (rol === "admin" || rol === 'analyst') */}
             <Route
               path="/usuarios"
               element={
-                <ProtectedRoute isAllowed={true}>
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
                   <Usuarios />
                 </ProtectedRoute>
               }
@@ -56,7 +70,9 @@ const App = () => {
             <Route
               path="/usuarios/editar/"
               element={
-                <ProtectedRoute isAllowed={true}>
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
                   <UserUpdate />
                 </ProtectedRoute>
               }
@@ -64,7 +80,9 @@ const App = () => {
             <Route
               path="/usuarios/agregar/"
               element={
-                <ProtectedRoute isAllowed={true}>
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
                   <RegisterForm />
                 </ProtectedRoute>
               }
@@ -72,7 +90,9 @@ const App = () => {
             <Route
               path="/prospectos"
               element={
-                <ProtectedRoute isAllowed={user && (rol === "admin" || rol === "analyst")}>
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
                   <Prospectos />
                 </ProtectedRoute>
               }
@@ -80,7 +100,9 @@ const App = () => {
             <Route
               path="/sucursales"
               element={
-                <ProtectedRoute isAllowed={user && (rol === "admin" || rol === "analyst")}>
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
                   <Sucursales />
                 </ProtectedRoute>
               }
@@ -104,7 +126,9 @@ const App = () => {
             <Route
               path="/planes"
               element={
-                <ProtectedRoute isAllowed={user && (rol === "admin" || rol === "analyst")}>
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
                   <Planes />
                 </ProtectedRoute>
               }
@@ -122,6 +146,57 @@ const App = () => {
               element={
                 <ProtectedRoute isAllowed={user && rol === "admin"}>
                   <PlanesEdit />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/mascotas"
+              element={
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
+                  <Mascota />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/mascotas/ver"
+              element={
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
+                  <MascotaView />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/mascotas/crear"
+              element={
+                <ProtectedRoute isAllowed={user && rol === "admin"}>
+                  <MascotaCreate />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/mascota/editar"
+              element={
+                <ProtectedRoute isAllowed={user && rol === "admin"}>
+                  <MascotaEdit />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/mascota/estado"
+              element={
+                <ProtectedRoute
+                  isAllowed={user && (rol === "admin" || rol === "analyst")}
+                >
+                  <MascotaEstado />
                 </ProtectedRoute>
               }
             />

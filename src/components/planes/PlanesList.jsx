@@ -55,17 +55,17 @@ export default function PlanesList() {
                     {planes.map((data, index) => {
                         return (
                             <Table.Row key={index}>
-                                <Table.Cell>{index+1}</Table.Cell>
-                                <Table.Cell>{data.nombre}</Table.Cell>
-                                <Table.Cell>{data.descripcion}</Table.Cell>
-                                <Table.Cell>{data.precio}</Table.Cell>
+                                <Table.Cell className='align-middle'>{index+1}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.nombre}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.descripcion}</Table.Cell>
+                                <Table.Cell className='align-middle'>{data.precio}</Table.Cell>
                                 <Table.Cell>
                                     <Link to='/planes/editar'>
-                                        <Button onClick={() => setData(data)}>Actualizar</Button>
+                                        <Button className='btn btn-secondary' onClick={() => setData(data)}>Actualizar</Button>
                                     </Link>
                                 </Table.Cell>
                                 <Table.Cell>
-                                    <Button onClick={() => onDelete(data.id)} >Eliminar</Button>
+                                    <Button className='btn btn-danger' onClick={() => onDelete(data.id)} >Eliminar</Button>
                                 </Table.Cell>
                             </Table.Row>
                         )
