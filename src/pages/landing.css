@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  :root {
+    --ff: 'Poppins', sans-serif;
+  }
+  
+  /* .form {
+    display: flex;
+    flex-direction: column; 
+    font-family: var(--ff);
+    width: 20rem;
+  } */
+  
+  .form__label {
+    margin-top: 1rem;
+  }
+  
+  .form__input {
+    padding: .8rem;
+    border-radius: .5rem;
+    border: 1px solid rgb(222, 222, 222);
+    font-size: 1rem;
+  }
+  
+  .form__submit {
+    background-color: rgb(173, 109, 233);
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    margin-top: 2rem;
+    color: #fff;
+    font-family: var(--ff);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 3px 10px -2px rgb(231, 119, 229);
+  }
+  
+  .header-land{
+    background-image: url('https://www.thefarmersdog.com/digest/wp-content/uploads/2021/06/cat-and-dog-top.jpg'); 
+    height: 400px; 
+    background-position: center
+  }
+  
+  .p-7-6{
+    padding: 7.6rem
+  }
+  
+  .height-mask{
+    height: inherit;
+    display: grid;
+  }
+  
+  .carrousel{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+  }
+  
+  .imgcarrouselbackground{
+    background-image: url('\textura.png'); 
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  
+  .titlecarrousel{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    color: rgb(173, 109, 233);
+  
+  }
+  
+  .titlecarrouselwhite{
+    margin-bottom: 5%;
+    margin-top: 5%;
+    color: #fff;
+  
+  }
+  
+  .imgcardplan{
+    height: 100px;
+  }
+  
+  .margen-contenido{
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  .background-mask{
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .visiontext{
+    text-align: right;
+    color: #fff;
+  
+  }
+  
+  .visionposition{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+  }
+  
+  .misiontext{
+    text-align: left;
+  
+  }
+  
+  .misionicon{
+    width: 30%;
+    margin-left: 50%;
+  }
+  
+  .visionbackground{
+    background-color: rgb(177, 128, 229);
+  }
+  
+  .contactenos{
+    padding-top: 5%;
+    background-image: url('\textura2.png');
+    padding-bottom: 5%;
+  }
